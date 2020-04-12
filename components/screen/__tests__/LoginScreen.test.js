@@ -3,11 +3,21 @@ import { render, fireEvent } from 'react-native-testing-library';
 
 import LoginScreen from '../user/LoginScreen';
 
+import { Button, TextInput } from 'react-native-paper';
+
+
 test('LoginScreen renders all inputs as expected', () => {
   const { toJSON } = render(<LoginScreen />);
 
   expect(toJSON()).toMatchSnapshot();
 });
+
+//test('renders the passed label', () => {
+//  const { getByText, queryByText } = render(<TextInput label="Test Label" />);
+
+//  expect(getByText('Test Label')).not.toBeNull();
+//  expect(queryByText('ASDF')).toBeNull();
+//});
 
 // test('forwards remaining props to the underlying TextInput', () => {
 //   const onChangeTextMock = jest.fn();
