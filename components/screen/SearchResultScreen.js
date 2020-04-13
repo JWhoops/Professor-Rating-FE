@@ -27,10 +27,11 @@ class SearchResultScreen extends React.Component {
           color="black"
           size={35}
           onPress={() => {
-            const { url, email } = navigation.state.params;
+            const { url, email, token } = navigation.state.params;
             navigation.navigate('Saved', {
               url: url,
               email: email,
+              token: token,
             });
           }}
         />,

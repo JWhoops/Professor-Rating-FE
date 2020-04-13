@@ -3,7 +3,7 @@ import { render } from 'react-native-testing-library';
 
 import ResultSaved from '../../ResultSaved';
 
-test('ResultSaved renders all inputs as expected', () => {
+test('ResultSaved renders all inputs as expected', async () => {
     global.fetch = require('node-fetch');
   const createTestProps = (props) => ({
     navigation: {

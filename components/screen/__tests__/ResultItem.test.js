@@ -3,7 +3,7 @@
 
  import ResultItem from '../../ResultItem';
 
- test('ResultItem renders all inputs as expected', () => {
+ test('ResultItem renders all inputs as expected', async () => {
    const { toJSON } = render(<ResultItem />);
 
    expect(toJSON()).toMatchSnapshot();

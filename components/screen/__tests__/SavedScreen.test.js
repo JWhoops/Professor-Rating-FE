@@ -3,7 +3,7 @@ import { render } from 'react-native-testing-library';
 
 import SavedScreen from '../SavedScreen';
 
-test('SavedScreen renders all inputs as expected', () => {
+test('SavedScreen renders all inputs as expected', async () => {
     global.fetch = require('node-fetch');
   const createTestProps = (props) => ({
     navigation: {

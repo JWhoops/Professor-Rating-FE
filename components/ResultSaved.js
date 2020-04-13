@@ -22,10 +22,11 @@ class ResultSaved extends React.Component {
   };
 
   toComment() {
-    const { course_id, url, navigate } = this.props;
+    const { course_id, url, navigate, token } = this.props;
     navigate('Comment', {
       course_id: course_id,
       url: url,
+      token: token,
     });
   }
 

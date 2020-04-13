@@ -4,7 +4,7 @@ import { render, fireEvent } from 'react-native-testing-library';
 import RateScreen from '../RateScreen';
 
 
-test('RateScreen renders all inputs as expected', () => {
+test('RateScreen renders all inputs as expected', async () => {
     const createTestProps = (props) => ({
         navigation: {
           state: { params: {

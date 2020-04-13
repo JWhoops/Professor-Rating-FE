@@ -3,7 +3,7 @@ import { render } from 'react-native-testing-library';
 
 import SearchResultScreen from '../SearchResultScreen';
 
-test('SearchResultScreen renders all inputs as expected', () => {
+test('SearchResultScreen renders all inputs as expected', async () => {
     global.fetch = require('node-fetch');
   const createTestProps = (props) => ({
     navigation: {

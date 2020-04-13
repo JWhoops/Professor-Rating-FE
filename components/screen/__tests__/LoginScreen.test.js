@@ -6,7 +6,7 @@ import LoginScreen from '../user/LoginScreen';
 import { Button, TextInput } from 'react-native-paper';
 
 
-test('LoginScreen renders all inputs as expected', () => {
+test('LoginScreen renders all inputs as expected', async () => {
   const { toJSON } = render(<LoginScreen />);
 
   expect(toJSON()).toMatchSnapshot();

@@ -4,7 +4,7 @@ import * as navigation from "react-navigation";
 
 import CommentScreen from '../CommentScreen';
 
-test('CommentScreen renders all inputs as expected', () => {
+test('CommentScreen renders all inputs as expected', async () => {
   global.fetch = require('node-fetch');
   const createTestProps = (props) => ({
     navigation: {
