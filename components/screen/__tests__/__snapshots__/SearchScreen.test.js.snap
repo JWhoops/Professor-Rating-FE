@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchScreen renders all inputs as expected 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 4,
+        "elevation": 4,
+        "flexDirection": "row",
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 3,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 4,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessibilityStates={Array []}
+      accessible={true}
+      focusable={false}
+      hitSlop={
+        Object {
+          "bottom": 6,
+          "left": 6,
+          "right": 6,
+          "top": 6,
+        }
+      }
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "margin": 6,
+              "overflow": "hidden",
+            },
+            Object {
+              "borderRadius": 18,
+              "height": 36,
+              "width": 36,
+            },
+            undefined,
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={null}
+      >
+        <Text
+          accessibilityElementsHidden={true}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "rgba(0, 0, 0, 0.54)",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          □
+        </Text>
+      </View>
+    </View>
+    <TextInput
+      accessibilityRole="search"
+      accessibilityTraits="search"
+      allowFontScaling={true}
+      keyboardAppearance="light"
+      onChangeText={[Function]}
+      placeholder="Type Here..."
+      placeholderTextColor="rgba(0, 0, 0, 0.54)"
+      rejectResponderTermination={true}
+      returnKeyType="search"
+      selectionColor="#6200ee"
+      style={
+        Array [
+          Object {
+            "alignSelf": "stretch",
+            "flex": 1,
+            "fontSize": 18,
+            "minWidth": 0,
+            "paddingLeft": 8,
+            "textAlign": "left",
+          },
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          undefined,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value="CS"
+    />
+    <View
+      accessibilityRole="button"
+      accessibilityStates={Array []}
+      accessible={true}
+      focusable={true}
+      hitSlop={
+        Object {
+          "bottom": 6,
+          "left": 6,
+          "right": 6,
+          "top": 6,
+        }
+      }
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "margin": 6,
+              "overflow": "hidden",
+            },
+            Object {
+              "borderRadius": 18,
+              "height": 36,
+              "width": 36,
+            },
+            false,
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={null}
+      >
+        <Text
+          accessibilityElementsHidden={true}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "rgba(0, 0, 0, 0.54)",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          □
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#6200ee",
+        "borderColor": "transparent",
+        "borderRadius": 4,
+        "borderStyle": "solid",
+        "borderWidth": 0,
+        "elevation": 2,
+        "margin": "5%",
+        "minWidth": 64,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 0.75,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 1.5,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessibilityStates={Array []}
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          Object {
+            "borderRadius": 4,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "letterSpacing": 1,
+                  "marginHorizontal": 16,
+                  "marginVertical": 9,
+                  "textAlign": "center",
+                },
+                undefined,
+                Object {
+                  "textTransform": "uppercase",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "System",
+                  "fontWeight": "500",
+                },
+                Object {
+                  "fontFamily": "System",
+                  "fontWeight": "500",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          SEARCH
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

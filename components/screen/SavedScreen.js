@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ActivityIndicator } from 'react-native-paper';
 import { View, FlatList } from 'react-native';
-import ResultItem from '../ResultSaved.js';
+import ResultSaved from '../ResultSaved.js'; //
 
 
 class SavedScreen extends React.Component {
@@ -14,6 +14,7 @@ class SavedScreen extends React.Component {
       terms: [],
       fav: [],
       visible: true,
+      token: '',
     };
   }
 
@@ -22,7 +23,7 @@ class SavedScreen extends React.Component {
   };
 
   componentDidMount() {
-    const { url, email } = this.props.navigation.state.params;
+    const { url, email, token } = this.props.navigation.state.params;
     fetch(url + '/v1/users/email/' + email, {
       method: 'GET',
       mode: 'cors',
@@ -38,7 +39,7 @@ class SavedScreen extends React.Component {
         if (result.success === true) {
           // let terms = result.data;
           let terms = result.data.favorite;
-          this.setState({ terms: terms, visible: false });
+          this.setState({ terms: terms, visible: false, token: token });
         }
       })
       .catch(err => {
@@ -57,7 +58,7 @@ class SavedScreen extends React.Component {
         <FlatList
           data={this.state.terms}
           renderItem={({ item }) => (
-            <ResultItem
+            <ResultSaved
               title={item.name}
               course_id={item.id}
               description={item.description}

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentItem renders all inputs as expected 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "borderRadius": 4,
+      "height": "auto",
+      "marginHorizontal": 8,
+      "marginTop": 10,
+      "padding": 20,
+      "shadowColor": "rgba(96,96,96,1)",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.13,
+      "shadowRadius": 4,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#666",
+          "fontWeight": "bold",
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "position": "absolute",
+          "right": -5,
+        }
+      }
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#666",
+        "marginTop": 12,
+      }
+    }
+  />
+</View>
+`;

@@ -51,7 +51,7 @@ class ResultItem extends React.Component {
       .then(result => {
         if (result.success === true) {
           const terms = result.data;
-          alert("You have added " + terms.name + " to your favorite list.");
+          alert("Added ");
         } else {
           alert("You have already added this course to your favorite list.");
         }
