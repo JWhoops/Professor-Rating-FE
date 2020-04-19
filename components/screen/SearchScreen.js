@@ -25,7 +25,7 @@ class SearchScreen extends React.Component {
       const { navigate } = this.props.navigation;
       const { url, email, token } = this.props.navigation.state.params;
       navigate('Result', {
-        search: this.state.search,
+        search: this.state.search.toUpperCase(), //
         url: url,
         token: token,
         email: email,
