@@ -66,20 +66,24 @@ class ResultItem extends React.Component {
       <View>
         <Card style={styles.card}>
           <Card.Content>
-            <Title>{this.props.title}</Title>
-            <Text style={{ fontSize: 11, color: "grey" }}>{this.props.season + ", " + this.props.year}</Text>
-            <Paragraph style={{ marginTop: 15 }}>{this.props.description}</Paragraph>
-            <View style={{ position: "absolute", right: 3, top: 0 }}>
+            <Title style={{ top: -5, color: "#282728" }}>{this.props.title}</Title>
+            <Text style={{ fontSize: 11, color: "#646569", top: -8}}>{this.props.season + ", " + this.props.year}</Text>
+            <Paragraph style={{ marginTop: 8, color: "#282728" }}>{this.props.description}</Paragraph>
+            <View style={{ 
+              position: "absolute", 
+              right: 3,
+              top: 0,
+            }}>
               <IconButton
-                icon="heart-circle"
-                color="#4630EB"
+                icon="heart"
+                color="#c5050c"
                 size={30}
                 onPress={() => this.toSaved()}
               />
             </View>
           </Card.Content>
           <Card.Actions>
-            <Button onPress={() => this.toComment()}>Detail</Button>
+            <Button onPress={() => this.toComment()}><Text style={{color:"#9b0000"}}>Detail</Text></Button>
           </Card.Actions>
         </Card>
       </View>
@@ -88,7 +92,23 @@ class ResultItem extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  card: { width: '94%', marginLeft: '3%', marginTop: '3%' },
+  card: { 
+    width: '92%', 
+    marginLeft: '4%', 
+    marginTop: '4.5%', 
+    borderRadius: 0, 
+    backgroundColor: '#f7f7f7',
+
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowRadius: 5, // 设置阴影模糊半径
+    shadowOpacity: 0.1, // 设置阴影的不透明度
+    shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
+
+    elevation: 1,
+  },
 });
 
 export default ResultItem;

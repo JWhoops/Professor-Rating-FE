@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, IconButton } from 'react-native-paper';
 import { Rating } from 'react-native-ratings';
 
 class RateScreen extends React.Component {
@@ -14,8 +14,30 @@ class RateScreen extends React.Component {
     };
   }
 
-  static navigationOptions = {
-    title: 'Rate',
+  static navigationOptions = ({navigation}) => {
+    return({
+      title: '',
+      headerTitleStyle: {
+        alignSelf: 'right',
+        color: '#F7F7F7',
+      },
+      headerStyle: { 
+        backgroundColor: '#C5050C',
+        shadowOffset: {
+          // 设置阴影偏移量
+          width: 0,
+          height: 4,
+        },
+        shadowRadius: 4, // 设置阴影模糊半径
+        shadowOpacity: 0.13, // 设置阴影的不透明度
+        shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
+      },
+      headerLeft:(()=><IconButton
+        icon={'chevron-left'}
+        onPress={()=>{navigation.goBack()}}
+        color="#F7F7F7"
+        size={35}/>)
+    })
   };
 
   onContentSizeChange(event) {
@@ -67,9 +89,10 @@ class RateScreen extends React.Component {
               width: 0,
               height: 4,
             },
-            shadowRadius: 4,
+            shadowRadius: 10,
             shadowOpacity: 0.13,
-            borderRadius: 4,
+            elevation: 0.2,
+            borderRadius: 0,
             shadowColor: 'rgba(96,96,96,1)',
             width: '95%',
             height: 'auto',
@@ -91,7 +114,6 @@ class RateScreen extends React.Component {
             </View>
           </View>
           <View style={{
-            borderRadius: 4,
             backgroundColor: '#fafafa',
             padding: 10,
             marginTop: 15,
@@ -116,9 +138,11 @@ class RateScreen extends React.Component {
             },
             shadowRadius: 4,
             shadowOpacity: 0.13,
-            borderRadius: 4,
-            shadowColor: 'rgba(96,96,96,1)',
+            elevation: 2,
+            borderWidth: 0,
+            borderRadius: 0,
             padding: 2,
+            backgroundColor: '#c5050c',
           }}
           onPress={() => this.postComment()}
           mode="contained">

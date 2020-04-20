@@ -36,12 +36,12 @@ class ResultSaved extends React.Component {
       <ScrollView>
         <Card style={styles.card}>
           <Card.Content>
-            <Title>{this.props.title}</Title>
+            <Title style={{ top: -5, color: "#282728" }}>{this.props.title}</Title>
 
-            <Paragraph>{this.props.description}</Paragraph>
+            <Paragraph style={{ marginTop: 8, color: "#282728" }}>{this.props.description}</Paragraph>
           </Card.Content>
           <Card.Actions>
-            <Button onPress={() => this.toComment()}>Detail</Button>
+            <Button onPress={() => this.toComment()}><Text style={{color:"#9b0000"}}>Detail</Text></Button>
           </Card.Actions>
         </Card>
 
@@ -52,7 +52,23 @@ class ResultSaved extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  card: { width: '94%', marginLeft: '3%', marginTop: '3%' },
+  card: { 
+    width: '92%', 
+    marginLeft: '4%', 
+    marginTop: '4.5%', 
+    borderRadius: 0, 
+    backgroundColor: '#f7f7f7',
+
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowRadius: 10, // 设置阴影模糊半径
+    shadowOpacity: 0.3, // 设置阴影的不透明度
+    shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
+
+    elevation: 3,
+  },
 
 });
 

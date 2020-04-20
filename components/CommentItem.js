@@ -17,10 +17,13 @@ export default class Comment extends React.Component {
           },
           shadowRadius: 4,
           shadowOpacity: 0.13,
-          borderRadius: 4,
+          elevation: 0.2,
+
+          borderRadius: 0,
           shadowColor: 'rgba(96,96,96,1)',
           height: 'auto',
-          padding: 20,
+          padding: 18,
+          paddingTop: 15,
           marginTop: 10,
           marginHorizontal: 8,
           backgroundColor: '#fff',
@@ -29,7 +32,7 @@ export default class Comment extends React.Component {
           <Text style={{ fontWeight: 'bold', color: '#666' }}>
             {this.props.date}
           </Text>
-          <View style={{ position: 'absolute', right: -5 }}>
+          <View style={{ position: 'absolute', right: -2 }}>
             <Rating
               startingValue={this.props.rate}
               ratingCount={5}

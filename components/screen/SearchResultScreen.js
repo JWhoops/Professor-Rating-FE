@@ -20,12 +20,30 @@ class SearchResultScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: 'Search Result',
+      headerTitle: '',
+      headerStyle: { 
+        backgroundColor: '#C5050C',
+        shadowOffset: {
+          // 设置阴影偏移量
+          width: 0,
+          height: 4,
+        },
+        shadowRadius: 10, // 设置阴影模糊半径
+        shadowOpacity: 0.3, // 设置阴影的不透明度
+        shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
+        elevation: 4,
+      },
+      headerLeft:()=>
+        <IconButton
+          icon={'chevron-left'}
+          onPress={()=>{navigation.goBack()}}
+          color="#F7F7F7"
+          size={35}/>,
       headerRight: () =>
         <IconButton
-          icon="account"
-          color="black"
-          size={35}
+          icon="heart-multiple"
+          color="#F7F7F7"
+          size={23}
           onPress={() => {
             const { url, email, token } = navigation.state.params;
             navigation.navigate('Saved', {
@@ -85,7 +103,7 @@ class SearchResultScreen extends React.Component {
           alignSelf: "center"
         }} size={60} color="#0000ff" />}
         {this.state.notFound &&
-          <View style={{ alignItems: "center" }}>
+          <View style={{ alignItems: "center", backgroundColor: "	#f7f7f7" }}>
             <Text style={{ fontSize: 18, color: "grey", marginTop: "45%", fontWeight: "bold" }}>
               Whoops, courses not found : (
             </Text>

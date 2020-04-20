@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, FlatList, Text } from 'react-native';
-import { Button, ActivityIndicator } from 'react-native-paper';
+import { Button, ActivityIndicator, IconButton } from 'react-native-paper';
 import Comment from '../CommentItem.js';
 
 class CommentScreen extends React.Component {
@@ -17,6 +17,27 @@ class CommentScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return ({
       headerTitle: navigation.state.params.header,
+      headerTitleStyle: {
+        // marginLeft: 'auto',
+        alignSelf: 'center',
+        color: '#F7F7F7',
+      },
+      headerStyle: { 
+        backgroundColor: '#C5050C',
+        shadowOffset: {
+          // 设置阴影偏移量
+          width: 0,
+          height: 4,
+        },
+        shadowRadius: 4, // 设置阴影模糊半径
+        shadowOpacity: 0.13, // 设置阴影的不透明度
+        shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
+      },
+      headerLeft:(()=><IconButton
+        icon={'chevron-left'}
+        onPress={()=>{navigation.goBack()}}
+        color="#F7F7F7"
+        size={35}/>)
     })
   };
 
@@ -115,6 +136,8 @@ class CommentScreen extends React.Component {
             position: 'absolute',
             bottom: '3%',
             left: '10%',
+            borderRadius: 0,
+            backgroundColor: "#C5050C",
           }}
           onPress={() => this.props.navigation.navigate('Rate', {
             onNavigateBack: this.init.bind(this),

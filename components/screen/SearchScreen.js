@@ -22,14 +22,29 @@ class SearchScreen extends React.Component {
             height: 4,
           },
           shadowRadius: 10, // 设置阴影模糊半径
-          shadowOpacity: 0.3, // 设置阴影的不透明度
+          shadowOpacity: 0.0, // 设置阴影的不透明度
           shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
         },
-        headerLeft:(()=><IconButton
-          icon={'chevron-left'}
-          onPress={()=>{navigation.goBack()}}
-          color="#F7F7F7"
-          size={35}/>)
+        headerLeft:(()=>
+          <IconButton
+            icon={'chevron-left'}
+            onPress={()=>{navigation.goBack()}}
+            color="#F7F7F7"
+            size={35}/>),
+        headerRight: () =>
+          <IconButton
+            icon="heart-multiple"
+            color="#F7F7F7"
+            size={23}
+            onPress={() => {
+              const { url, email, token } = navigation.state.params;
+              navigation.navigate('Saved', {
+                url: url,
+                email: email,
+                token: token,
+              });
+            }}
+          />,
       };
     }
 
