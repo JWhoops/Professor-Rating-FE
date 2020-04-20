@@ -68,8 +68,9 @@ export default class LoginScreen extends React.Component {
       <ImageBackground
         source={require('../../pic/home_back.png')}
         style={{
+          // marginTop: '10%',
           width: Dimensions.get('window').width,
-          height: Dimensions.get('window').height,
+          height: Dimensions.get('window').height+100,
         }}
       >
       <View style={styles.container}>
@@ -118,8 +119,11 @@ export default class LoginScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: '40%',
+  },
   input_container: {
-    marginTop: '87%',
+    marginTop: '50%',
     alignItems: 'center',
   },
   inputs: {
