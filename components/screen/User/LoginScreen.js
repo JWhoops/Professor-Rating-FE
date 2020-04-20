@@ -140,10 +140,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btn: {
-    marginTop: '4%',
+    marginHorizontal: '4%',
     borderWidth: 0,
     borderRadius: 0,
     backgroundColor : "#F7F7F7",
+    marginTop: '3%',
     width: '36%',
     color: '#646569',
   },
