@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, ImageBackground, Text } from 'react-native';
+import { View, StyleSheet, ImageBackground, Text, Dimensions } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 
 export default class LoginScreen extends React.Component {
@@ -66,8 +66,11 @@ export default class LoginScreen extends React.Component {
     const { email, password } = this.state;
     return (
       <ImageBackground
-        source={require('../../pic/home_back_1.png')}
-        style={{width: '100%', height: '100%'}}
+        source={require('../../pic/home_back.png')}
+        style={{
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height,
+        }}
       >
       <View style={styles.container}>
         <View style={styles.input_container}>
@@ -137,11 +140,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btn: {
-    marginHorizontal: '4%',
+    marginTop: '4%',
     borderWidth: 0,
     borderRadius: 0,
     backgroundColor : "#F7F7F7",
-    marginTop: '3%',
     width: '36%',
     color: '#646569',
   },

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
-import { Button, TextInput } from 'react-native-paper';
+import { IconButton, Button, TextInput } from 'react-native-paper';
 
 class SignupScreen extends React.Component {
   constructor(props) {
@@ -13,9 +12,40 @@ class SignupScreen extends React.Component {
     };
   }
 
-  static navigationOptions = {
-    title: 'Register',
-  };
+  // static navigationOptions = {
+    // title: '',
+    // headerLeft: () => (
+    //   <IconButton
+    //     icon={'chevron-left'}
+    //     onPress={()=>{navigation.goBack()}}
+    //     title="return"
+    //     color="#F7F7F7"
+    //   />
+    // ),
+    
+  // };
+  static navigationOptions = (
+    {navigation}) => {
+    return{
+      title: '',
+      headerStyle: { 
+        backgroundColor: '#C5050C',
+        shadowOffset: {
+          // 设置阴影偏移量
+          width: 0,
+          height: 4,
+        },
+        shadowRadius: 4, // 设置阴影模糊半径
+        shadowOpacity: 0.13, // 设置阴影的不透明度
+        shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
+      },
+      headerLeft:(()=><IconButton
+        icon={'chevron-left'}
+        onPress={()=>{navigation.goBack()}}
+        color="#F7F7F7"
+        size={35}/>)
+    }
+  }
 
   handleEmail = text => {
     this.setState({ email: text });
@@ -70,23 +100,29 @@ class SignupScreen extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <TextInput
           label="Email"
           onChangeText={text => this.handleEmail(text)}
           style={styles.input}
+          underlineColor='transparent'
+          theme={{colors: {text: '#282728', primary: '#c5050c'}}}
         />
         <TextInput
           label="Password"
           onChangeText={text => this.handlePassword(text)}
           style={styles.input}
           secureTextEntry={true}
+          underlineColor='transparent'
+          theme={{colors: {text: '#282728', primary: '#c5050c'}}}
         />
         <TextInput
           label="Confirm Password"
           onChangeText={text => this.handleConfirmPassword(text)}
           style={styles.input}
           secureTextEntry={true}
+          underlineColor='transparent'
+          theme={{colors: {text: '#282728', primary: '#c5050c'}}}
         />
 
         <Button
@@ -101,14 +137,31 @@ class SignupScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: '5%',
+    alignItems: 'center',
+  },
   input: {
-    marginLeft: '5%',
+    // marginLeft: '5%',
     marginTop: '3%',
-    width: '90%',
+    width: '85%',
+
+    fontSize: 14,
+    borderWidth: 0,
+    borderRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    backgroundColor: "#F7F7F7",
+    // width: '80%',
+    height: 60,
+    // marginTop: '6%',
   },
   btn: {
-    width: '90%',
+    marginTop: '8%',
+    width: '85%',
     margin: '5%',
+    borderRadius: 0,
+    backgroundColor: '#c5050c',
   },
 });
 
