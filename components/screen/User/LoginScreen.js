@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 
 export default class LoginScreen extends React.Component {
@@ -14,7 +14,8 @@ export default class LoginScreen extends React.Component {
   }
 
   static navigationOptions = {
-    title: 'Login',
+    title: ' ',
+    headerShown: false,
   };
 
   componentDidMount() {}
@@ -64,20 +65,29 @@ export default class LoginScreen extends React.Component {
   render() {
     const { email, password } = this.state;
     return (
+      <ImageBackground
+        source={require('../../pic/home_back_1.png')}
+        style={{width: '100%', height: '100%'}}
+      >
       <View style={styles.container}>
         <View style={styles.input_container}>
           <TextInput
             style={styles.inputs}
-            label="Email"
+            underlineColor='transparent'
+            // underlineColorAndroid='transparent'
+            placeholder="Email"
             value={email}
             onChangeText={u => this.setState({ email: u })}
+            theme={{colors: {text: '#282728', primary: 'transparent'}}}
           />
           <TextInput
             style={styles.inputs}
-            label="Password"
+            underlineColor='transparent'
+            placeholder="Password"
             value={password}
             onChangeText={p => this.setState({ password: p })}
             secureTextEntry={true}
+            theme={{colors: {text: '#282728', primary: 'transparent'}}}
           />
         </View>
         <View style={styles.btn_container}>
@@ -87,7 +97,7 @@ export default class LoginScreen extends React.Component {
             onPress={() => {
               this.login();
             }}>
-            Login
+            <Text style={{color: '#646569'}}>Login</Text>
           </Button>
           <Button
             mode="contained"
@@ -95,29 +105,44 @@ export default class LoginScreen extends React.Component {
             onPress={() => {
               this.register();
             }}>
-            Register
+            <Text style={{color: '#646569'}}>Register</Text>
           </Button>
         </View>
       </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
   input_container: {
-    marginTop: '5%',
+    marginTop: '87%',
+    alignItems: 'center',
   },
   inputs: {
-    width: '90%',
-    marginLeft: '5%',
-    marginTop: '3%',
+    fontSize: 14,
+    borderWidth: 0,
+    borderRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    backgroundColor : "#F7F7F7",
+    width: '80%',
+    height: 40,
+    marginTop: '6%',
   },
   btn_container: {
     marginTop: '5%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   btn: {
+    marginHorizontal: '4%',
+    borderWidth: 0,
+    borderRadius: 0,
+    backgroundColor : "#F7F7F7",
     marginTop: '3%',
-    width: '80%',
-    marginLeft: '10%',
+    width: '36%',
+    color: '#646569',
   },
 });
