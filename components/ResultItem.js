@@ -64,7 +64,7 @@ class ResultItem extends React.Component {
   render() {
     return (
       <View style={{marginBottom:1}}>
-        <Card style={styles.card}>
+        <Card style={styles.card} onPress={() => this.toComment()}>
           <Card.Content>
             <Title style={{ top: -5, color: "#282728" }}>{this.props.title}</Title>
             <Text style={{ fontSize: 11, color: "#646569", top: -8}}>{this.props.season + ", " + this.props.year}</Text>
@@ -82,9 +82,9 @@ class ResultItem extends React.Component {
               />
             </View>
           </Card.Content>
-          <Card.Actions>
+          {/* <Card.Actions>
             <Button onPress={() => this.toComment()}><Text style={{color:"#9b0000"}}>Detail</Text></Button>
-          </Card.Actions>
+          </Card.Actions> */}
         </Card>
       </View>
     );

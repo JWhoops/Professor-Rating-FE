@@ -11,42 +11,42 @@ class SearchScreen extends React.Component {
   }
 
   static navigationOptions = (
-    {navigation}) => {
-      return{
-        title: '',
-        headerStyle: { 
-          backgroundColor: '#C5050C',
-          shadowOffset: {
-            // 设置阴影偏移量
-            width: 0,
-            height: 4,
-          },
-          shadowRadius: 10, // 设置阴影模糊半径
-          shadowOpacity: 0.0, // 设置阴影的不透明度
-          shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
+    { navigation }) => {
+    return {
+      title: '',
+      headerStyle: {
+        backgroundColor: '#C5050C',
+        shadowOffset: {
+          // 设置阴影偏移量
+          width: 0,
+          height: 4,
         },
-        headerLeft:(()=>
-          <IconButton
-            icon={'chevron-left'}
-            onPress={()=>{navigation.goBack()}}
-            color="#F7F7F7"
-            size={35}/>),
-        headerRight: () =>
-          <IconButton
-            icon="bookmark"
-            color="#F7F7F7"
-            size={28}
-            onPress={() => {
-              const { url, email, token } = navigation.state.params;
-              navigation.navigate('Saved', {
-                url: url,
-                email: email,
-                token: token,
-              });
-            }}
-          />,
-      };
-    }
+        shadowRadius: 10, // 设置阴影模糊半径
+        shadowOpacity: 0.0, // 设置阴影的不透明度
+        shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
+      },
+      headerLeft: (() =>
+        <IconButton
+          icon={'chevron-left'}
+          onPress={() => { navigation.goBack() }}
+          color="#F7F7F7"
+          size={35} />),
+      headerRight: () =>
+        <IconButton
+          icon="bookmark"
+          color="#F7F7F7"
+          size={28}
+          onPress={() => {
+            const { url, email, token } = navigation.state.params;
+            navigation.navigate('Saved', {
+              url: url,
+              email: email,
+              token: token,
+            });
+          }}
+        />,
+    };
+  }
 
   updateSearch = search => {
     this.setState({ search });
@@ -77,31 +77,31 @@ class SearchScreen extends React.Component {
           height: Dimensions.get('window').height,
         }}
       >
-      <View style={styles.container}>
-        <View style={styles.search}>
-          <Searchbar
-            placeholder="Type Here..."
-            style={{borderRadius: 0}}
-            onChangeText={this.updateSearch}
-            value={this.state.search}
-            inputStyle={{marginLeft: -10}}
-            icon={()=><IconButton
-              icon="magnify"
-              color="#494949"
-              size={30}
-              style={styles.submitButton}
-              onPress={() => this.searchCourse()}
-            />}
-          />
-        </View>
-        {/* <IconButton
+        <View style={styles.container}>
+          <View style={styles.search}>
+            <Searchbar
+              placeholder="Type Here..."
+              style={{ borderRadius: 0 }}
+              onChangeText={this.updateSearch}
+              value={this.state.search}
+              inputStyle={{ marginLeft: -10 }}
+              icon={() => <IconButton
+                icon="magnify"
+                color="#494949"
+                size={30}
+                style={styles.submitButton}
+                onPress={() => this.searchCourse()}
+              />}
+            />
+          </View>
+          {/* <IconButton
           icon="magnify"
           color="black"
           size={30}
           style={styles.submitButton}
           onPress={() => this.searchCourse()}
         /> */}
-      </View>
+        </View>
       </ImageBackground>
     );
   }
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     borderRadius: 0,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-    backgroundColor : "#F7F7F7",
+    backgroundColor: "#F7F7F7",
     height: 40,
     marginTop: '45%',
   }

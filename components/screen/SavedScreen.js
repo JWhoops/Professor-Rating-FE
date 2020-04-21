@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { ActivityIndicator, IconButton } from 'react-native-paper';
-import { View, FlatList } from 'react-native';
+import { ActivityIndicator, IconButton, Button } from 'react-native-paper';
+import { View, FlatList, Text } from 'react-native';
 import ResultSaved from '../ResultSaved.js'; //
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 class SavedScreen extends React.Component {
@@ -16,6 +15,7 @@ class SavedScreen extends React.Component {
       fav: [],
       visible: true,
       token: '',
+      notFound: false,
     };
     this.updateList = this.updateList.bind(this);
   }
@@ -62,7 +62,11 @@ class SavedScreen extends React.Component {
         if (result.success === true) {
           // let terms = result.data;
           let terms = result.data.favorite;
-          this.setState({ terms: terms, visible: false, token: token });
+          let notFound = false;
+          if (terms.length === 0) {
+            notFound = true;
+          }
+          this.setState({ notFound: notFound, terms: terms, visible: false, token: token });
         }
       })
       .catch(err => {
@@ -87,7 +91,11 @@ class SavedScreen extends React.Component {
         if (result.success === true) {
           // let terms = result.data;
           let terms = result.data.favorite;
-          this.setState({ terms: terms, visible: false, token: token });
+          let notFound = false;
+          if (terms.length === 0) {
+            notFound = true;
+          }
+          this.setState({ notFound: notFound, terms: terms, visible: false, token: token });
         }
       })
       .catch(err => {
@@ -98,28 +106,40 @@ class SavedScreen extends React.Component {
   render() {
     return (
       <View >
+        {this.state.notFound &&
+          <View>
+            <Text style={{ fontSize: 18, color: "grey", fontWeight: "bold", textAlign: "center", width: "100%", marginTop: "50%" }}>
+              No Favorite Course, Try to Bookmark a course : )
+            </Text>
+            <Button
+              color={"#c5050c"}
+              style={{ fontSize: 23, width: "auto" }}
+              onPress={() => { this.props.navigation.goBack(); }}
+            >Back to Courses</Button>
+          </View>
+        }
         {this.state.visible && <ActivityIndicator style={{
           position: "absolute",
           marginTop: "40%",
           alignSelf: "center"
-        }} size={60} color="#0000ff" />}
-          <FlatList
-            data={this.state.terms}
-            renderItem={({ item }) => (
-              <ResultSaved
-                title={item.name}
-                course_id={item.id}
-                description={item.description}
-                navigate={this.props.navigation.navigate}
-                token={this.state.token}
-                url={this.state.url}
-                email={this.state.email}
-                id={this.state.id}
-                updateList={this.updateList}
-              />
-            )}
-            keyExtractor={item => item.id}
-          />
+        }} size={60} color="#c5050c" />}
+        <FlatList
+          data={this.state.terms}
+          renderItem={({ item }) => (
+            <ResultSaved
+              title={item.name}
+              course_id={item.id}
+              description={item.description}
+              navigate={this.props.navigation.navigate}
+              token={this.state.token}
+              url={this.state.url}
+              email={this.state.email}
+              id={this.state.id}
+              updateList={this.updateList}
+            />
+          )}
+          keyExtractor={item => item.id}
+        />
       </View>
     );
   }

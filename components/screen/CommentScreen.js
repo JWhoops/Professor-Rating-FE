@@ -57,7 +57,7 @@ class CommentScreen extends React.Component {
       .then(result => {
         if (result.success == true) {
           const title = this.props.navigation.state.params;
-          this.setState({ visible: false, comments: result.data.comments.reverse(), title: title });
+          this.setState({notFound:false, visible: false, comments: result.data.comments.reverse(), title: title });
         } else {
           alert('otherwise: ' + result.sucess);
         }
@@ -85,7 +85,12 @@ class CommentScreen extends React.Component {
       })
       .then(result => {
         if (result.success === true) {
+          let notFound = false;
+          if (result.data.comments.length === 0) {
+            notFound = true;
+          }
           this.setState({
+            notFound: notFound,
             course_name: result.data.name,
             comments: result.data.comments.reverse(),
             visible: false,
@@ -112,23 +117,20 @@ class CommentScreen extends React.Component {
   render() {
     const { token, course_id } = this.props.navigation.state.params;
     let notFound = this.state.notFound;
-    if (!this.state.comments || this.state.comments.length === 0) {
-      notFound = true;
-    }
     return (
-      <View style={{ height: '100%' }}>
+      <View style={{ height: '100%', width: "100%" }}>
         {this.state.visible && <ActivityIndicator style={{
           position: "absolute",
           marginTop: "40%",
           alignSelf: "center"
         }} size={60} color="#C5050C" />}
-        {/* {notFound &&
-          <View style={{flexDirection:"row", justifyContent: "center" }}>
-            <Text style={{ fontSize: 18, color: "grey", marginTop: "45%", fontWeight: "bold" }}>
+        {notFound &&
+          <View style={{ width: "100%" }}>
+            <Text style={{ fontSize: 18, color: "grey", fontWeight: "bold", textAlign: "center", width: "100%", marginTop: "50%" }}>
               Whoops, there is no comment for this course : (
             </Text>
           </View>
-        } */}
+        }
         <FlatList
           contentContainerStyle={{ paddingBottom: '18%' }}
           data={this.state.comments}

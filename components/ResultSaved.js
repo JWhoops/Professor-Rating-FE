@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import {
-  Button,
   Card,
   Title,
   Paragraph,
@@ -61,24 +60,24 @@ class ResultSaved extends React.Component {
 
   render() {
     return (
-      <View style={{marginBottom:1}}>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Title style={{ top: -5, color: "#282728" }}>{this.props.title}</Title>
-          <Paragraph>{this.props.description}</Paragraph>
-          <View style={{ position: "absolute", right: 3, top: 0 }}>
-            <IconButton
-              icon="heart-off"
-              color="#9b0000"
-              size={28}
-              onPress={() => this.toUnSaved()}
-            />
-          </View>
-        </Card.Content>
-        <Card.Actions>
+      <View style={{ marginBottom: 1 }}>
+        <Card style={styles.card} onPress={() => this.toComment()}>
+          <Card.Content>
+            <Title style={{ top: -5, color: "#282728" }}>{this.props.title}</Title>
+            <Paragraph>{this.props.description}</Paragraph>
+            <View style={{ position: "absolute", right: 3, top: 0 }}>
+              <IconButton
+                icon="heart-off"
+                color="#9b0000"
+                size={28}
+                onPress={() => this.toUnSaved()}
+              />
+            </View>
+          </Card.Content>
+          {/* <Card.Actions>
           <Button onPress={() => this.toComment()}><Text style={{ color: "#9b0000" }}>Detail</Text></Button>
-        </Card.Actions>
-      </Card>
+        </Card.Actions> */}
+        </Card>
       </View>
     );
   }
