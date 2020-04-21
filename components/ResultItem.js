@@ -63,7 +63,7 @@ class ResultItem extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{marginBottom:1}}>
         <Card style={styles.card}>
           <Card.Content>
             <Title style={{ top: -5, color: "#282728" }}>{this.props.title}</Title>
@@ -98,16 +98,6 @@ const styles = StyleSheet.create({
     marginTop: '4.5%', 
     borderRadius: 0, 
     backgroundColor: '#f7f7f7',
-
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowRadius: 5, // 设置阴影模糊半径
-    shadowOpacity: 0.1, // 设置阴影的不透明度
-    shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
-
-    elevation: 1,
   },
 });
 
