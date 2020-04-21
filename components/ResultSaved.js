@@ -69,8 +69,8 @@ class ResultSaved extends React.Component {
           <View style={{ position: "absolute", right: 3, top: 0 }}>
             <IconButton
               icon="heart-off"
-              color="#FF1493"
-              size={30}
+              color="#9b0000"
+              size={28}
               onPress={() => this.toUnSaved()}
             />
           </View>

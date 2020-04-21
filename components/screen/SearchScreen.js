@@ -33,9 +33,9 @@ class SearchScreen extends React.Component {
             size={35}/>),
         headerRight: () =>
           <IconButton
-            icon="heart-multiple"
+            icon="bookmark"
             color="#F7F7F7"
-            size={23}
+            size={28}
             onPress={() => {
               const { url, email, token } = navigation.state.params;
               navigation.navigate('Saved', {

@@ -11,6 +11,7 @@ class CommentScreen extends React.Component {
       id: '',
       course_name: '',
       visible: true,
+      notFound: false,
     };
   }
 
@@ -22,7 +23,7 @@ class CommentScreen extends React.Component {
         alignSelf: 'center',
         color: '#F7F7F7',
       },
-      headerStyle: { 
+      headerStyle: {
         backgroundColor: '#C5050C',
         shadowOffset: {
           // 设置阴影偏移量
@@ -33,11 +34,11 @@ class CommentScreen extends React.Component {
         shadowOpacity: 0.13, // 设置阴影的不透明度
         shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
       },
-      headerLeft:(()=><IconButton
+      headerLeft: (() => <IconButton
         icon={'chevron-left'}
-        onPress={()=>{navigation.goBack()}}
+        onPress={() => { navigation.goBack() }}
         color="#F7F7F7"
-        size={35}/>)
+        size={35} />)
     })
   };
 
@@ -70,7 +71,6 @@ class CommentScreen extends React.Component {
     const {
       url,
       course_id,
-      title
     } = this.props.navigation.state.params;
     fetch(url + '/v1/terms/' + course_id, {
       method: 'GET',
@@ -111,13 +111,24 @@ class CommentScreen extends React.Component {
 
   render() {
     const { token, course_id } = this.props.navigation.state.params;
+    let notFound = this.state.notFound;
+    if (!this.state.comments || this.state.comments.length === 0) {
+      notFound = true;
+    }
     return (
       <View style={{ height: '100%' }}>
         {this.state.visible && <ActivityIndicator style={{
           position: "absolute",
           marginTop: "40%",
           alignSelf: "center"
-        }} size={60} color="#0000ff" />}
+        }} size={60} color="#C5050C" />}
+        {/* {notFound &&
+          <View style={{flexDirection:"row", justifyContent: "center" }}>
+            <Text style={{ fontSize: 18, color: "grey", marginTop: "45%", fontWeight: "bold" }}>
+              Whoops, there is no comment for this course : (
+            </Text>
+          </View>
+        } */}
         <FlatList
           contentContainerStyle={{ paddingBottom: '18%' }}
           data={this.state.comments}

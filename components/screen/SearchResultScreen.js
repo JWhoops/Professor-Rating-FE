@@ -21,7 +21,7 @@ class SearchResultScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: '',
-      headerStyle: { 
+      headerStyle: {
         backgroundColor: '#C5050C',
         shadowOffset: {
           // 设置阴影偏移量
@@ -33,17 +33,17 @@ class SearchResultScreen extends React.Component {
         shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
         elevation: 4,
       },
-      headerLeft:()=>
+      headerLeft: () =>
         <IconButton
           icon={'chevron-left'}
-          onPress={()=>{navigation.goBack()}}
+          onPress={() => { navigation.goBack() }}
           color="#F7F7F7"
-          size={35}/>,
+          size={35} />,
       headerRight: () =>
         <IconButton
-          icon="heart-multiple"
+          icon="bookmark"
           color="#F7F7F7"
-          size={23}
+          size={28}
           onPress={() => {
             const { url, email, token } = navigation.state.params;
             navigation.navigate('Saved', {
@@ -101,13 +101,14 @@ class SearchResultScreen extends React.Component {
           position: "absolute",
           marginTop: "40%",
           alignSelf: "center"
-        }} size={60} color="#0000ff" />}
+        }} size={60} color="#c5050c" />}
         {this.state.notFound &&
           <View style={{ alignItems: "center", backgroundColor: "	#f7f7f7" }}>
             <Text style={{ fontSize: 18, color: "grey", marginTop: "45%", fontWeight: "bold" }}>
               Whoops, courses not found : (
             </Text>
             <Button
+              color={"#c5050c"}
               style={{ fontSize: 23 }}
               onPress={() => { this.props.navigation.goBack(); }}
             >Try Again</Button>
