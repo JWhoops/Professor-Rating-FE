@@ -18,7 +18,6 @@ class RateScreen extends React.Component {
     return({
       title: '',
       headerTitleStyle: {
-        alignSelf: 'right',
         color: '#F7F7F7',
       },
       headerStyle: { 
@@ -97,12 +96,12 @@ class RateScreen extends React.Component {
             width: '95%',
             height: 'auto',
             padding: 16,
-            marginTop: 10,
+            marginTop: 15,
             marginHorizontal: 8,
             backgroundColor: '#fff',
           }}>
           <View style={{ flexDirection: 'row', marginHorizontal: 10 }}>
-            <Text style={{ fontWeight: 'bold', color: '#666' }}>{course_name}</Text>
+            <Text style={{ fontWeight: 'bold', color: '#666', top: -1.5, fontSize: 17 }}>{course_name}</Text>
             <View style={{ position: 'absolute', right: -5 }}>
               <Rating
                 ratingCount={5}
