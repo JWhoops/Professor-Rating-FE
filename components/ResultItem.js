@@ -51,7 +51,7 @@ class ResultItem extends React.Component {
       .then(result => {
         if (result.success === true) {
           const terms = result.data;
-          alert("Added ");
+          alert("Course Added :)");
         } else {
           alert("You have already added this course to your favorite list.");
         }
@@ -63,18 +63,25 @@ class ResultItem extends React.Component {
 
   render() {
     return (
-      <View style={{marginBottom:1}}>
-        <Card style={styles.card} onPress={() => this.toComment()}>
+      <View style={{ marginBottom: 1 }}>
+        <Card style={styles.card} onPress={() => this.toComment()}
+          accessibilityLabel={'result_card'}
+          testID={'result_card'}
+          accessible={true}
+        >
           <Card.Content>
             <Title style={{ top: -5, color: "#282728" }}>{this.props.title}</Title>
-            <Text style={{ fontSize: 11, color: "#646569", top: -8}}>{this.props.season + ", " + this.props.year}</Text>
+            <Text style={{ fontSize: 11, color: "#646569", top: -8 }}>{this.props.season + ", " + this.props.year}</Text>
             <Paragraph style={{ marginTop: 8, color: "#282728" }}>{this.props.description}</Paragraph>
-            <View style={{ 
-              position: "absolute", 
+            <View style={{
+              position: "absolute",
               right: 3,
               top: 0,
             }}>
               <IconButton
+                accessibilityLabel={'favorite_btn'}
+                testID={'favorite_btn'}
+                accessible={true}
                 icon="heart"
                 color="#c5050c"
                 size={30}
@@ -92,11 +99,11 @@ class ResultItem extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  card: { 
-    width: '92%', 
-    marginLeft: '4%', 
-    marginTop: '4.5%', 
-    borderRadius: 0, 
+  card: {
+    width: '92%',
+    marginLeft: '4%',
+    marginTop: '4.5%',
+    borderRadius: 0,
     backgroundColor: '#f7f7f7',
   },
 });

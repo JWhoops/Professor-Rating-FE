@@ -15,13 +15,13 @@ class RateScreen extends React.Component {
     };
   }
 
-  static navigationOptions = ({navigation}) => {
-    return({
+  static navigationOptions = ({ navigation }) => {
+    return ({
       title: '',
       headerTitleStyle: {
         color: '#F7F7F7',
       },
-      headerStyle: { 
+      headerStyle: {
         backgroundColor: '#C5050C',
         shadowOffset: {
           // 设置阴影偏移量
@@ -32,11 +32,11 @@ class RateScreen extends React.Component {
         shadowOpacity: 0.13, // 设置阴影的不透明度
         shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
       },
-      headerLeft:(()=><IconButton
+      headerLeft: (() => <IconButton
         icon={'chevron-left'}
-        onPress={()=>{navigation.goBack()}}
+        onPress={() => { navigation.goBack() }}
         color="#F7F7F7"
-        size={35}/>)
+        size={35} />)
     })
   };
 
@@ -122,7 +122,10 @@ class RateScreen extends React.Component {
             width: '100%',
           }}>
             <TextInput
-              placeholder="Type here"
+              placeholder="Type comment here"
+              accessibilityLabel={'comment_field'}
+              testID={'comment_field'}
+              accessible={true}
               multiline={true}
               onChangeText={text => this.setState({ comment: text })}
               onContentSizeChange={this.onContentSizeChange.bind(this)}
@@ -130,6 +133,9 @@ class RateScreen extends React.Component {
           </View>
         </View>
         <Button
+          accessibilityLabel={'submit_comment_btn'}
+          testID={'submit_comment_btn'}
+          accessible={true}
           style={{
             width: '95%',
             marginVertical: 13,

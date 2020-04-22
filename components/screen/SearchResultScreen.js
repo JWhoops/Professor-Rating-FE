@@ -31,16 +31,22 @@ class SearchResultScreen extends React.Component {
         shadowRadius: 10, // 设置阴影模糊半径
         shadowOpacity: 0.0, // 设置阴影的不透明度
         shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
-        elevation:3,
+        elevation: 3,
       },
       headerLeft: () =>
         <IconButton
+          accessibilityLabel={'result_back_btn'}
+          testID={'result_back_btn'}
+          accessible={true} 
           icon={'chevron-left'}
           onPress={() => { navigation.goBack() }}
           color="#F7F7F7"
           size={35} />,
       headerRight: () =>
         <IconButton
+          accessibilityLabel={'book_mark_btn'}
+          testID={'book_mark_btn'}
+          accessible={true}
           icon="bookmark"
           color="#F7F7F7"
           size={28}
@@ -108,6 +114,9 @@ class SearchResultScreen extends React.Component {
               Whoops, courses not found : (
             </Text>
             <Button
+              accessibilityLabel={'try_again_btn'}
+              testID={'try_again_btn'}
+              accessible={true}
               color={"#c5050c"}
               style={{ fontSize: 23 }}
               onPress={() => { this.props.navigation.goBack(); }}

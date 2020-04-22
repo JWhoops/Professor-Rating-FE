@@ -57,7 +57,7 @@ class CommentScreen extends React.Component {
       .then(result => {
         if (result.success == true) {
           const title = this.props.navigation.state.params;
-          this.setState({notFound:false, visible: false, comments: result.data.comments.reverse(), title: title });
+          this.setState({ notFound: false, visible: false, comments: result.data.comments.reverse(), title: title });
         } else {
           alert('otherwise: ' + result.sucess);
         }
@@ -144,6 +144,9 @@ class CommentScreen extends React.Component {
           keyExtractor={item => item.id}
         />
         <Button
+          accessibilityLabel={'add_comment_btn'}
+          testID={'add_comment_btn'}
+          accessible={true}
           style={{
             width: '80%',
             position: 'absolute',

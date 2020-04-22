@@ -6,7 +6,7 @@ class SearchScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: 'CS',
+      search: '',
     };
   }
 
@@ -80,12 +80,18 @@ class SearchScreen extends React.Component {
         <View style={styles.container}>
           <View style={styles.search}>
             <Searchbar
-              placeholder="Type Here..."
+              accessibilityLabel={'search_bar'}
+              testID={'search_bar'}
+              accessible={true}
+              placeholder="Course Name..."
               style={{ borderRadius: 0 }}
               onChangeText={this.updateSearch}
               value={this.state.search}
               inputStyle={{ marginLeft: -10 }}
               icon={() => <IconButton
+                accessibilityLabel={'search_btn'}
+                testID={'search_btn'}
+                accessible={true}
                 icon="magnify"
                 color="#494949"
                 size={30}

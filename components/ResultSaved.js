@@ -67,6 +67,9 @@ class ResultSaved extends React.Component {
             <Paragraph>{this.props.description}</Paragraph>
             <View style={{ position: "absolute", right: 3, top: 0 }}>
               <IconButton
+                accessibilityLabel={'unfavorite_btn'}
+                testID={'unfavorite_btn'}
+                accessible={true}
                 icon="heart-off"
                 color="#9b0000"
                 size={28}

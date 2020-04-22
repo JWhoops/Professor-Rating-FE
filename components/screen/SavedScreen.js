@@ -38,6 +38,9 @@ class SavedScreen extends React.Component {
       },
       headerLeft: (() =>
         <IconButton
+          accessibilityLabel={'saved_back_btn'}
+          testID={'saved_back_btn'}
+          accessible={true}
           icon={'chevron-left'}
           onPress={() => { navigation.goBack() }}
           color="#F7F7F7"
@@ -108,14 +111,21 @@ class SavedScreen extends React.Component {
       <View >
         {this.state.notFound &&
           <View>
-            <Text style={{ fontSize: 18, color: "grey", fontWeight: "bold", textAlign: "center", width: "100%", marginTop: "50%" }}>
-              No Favorite Course, Try to Bookmark a course : )
+            <Text style={{ fontSize: 18, color: "grey", fontWeight: "bold", textAlign: "center", width: "100%", marginTop: "50%" }}
+              accessibilityLabel={'no_favorite_text'}
+              testID={'no_favorite_text'}
+              accessible={true}
+            >
+              Nothing Here, Bookmark a course : )
             </Text>
             <Button
+              accessibilityLabel={'no_favorite_btn'}
+              testID={'no_favorite_btn'}
+              accessible={true}
               color={"#c5050c"}
               style={{ fontSize: 23, width: "auto" }}
               onPress={() => { this.props.navigation.goBack(); }}
-            >Back to Courses</Button>
+            >Go Back</Button>
           </View>
         }
         {this.state.visible && <ActivityIndicator style={{

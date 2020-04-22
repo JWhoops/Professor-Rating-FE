@@ -13,22 +13,22 @@ class SignupScreen extends React.Component {
   }
 
   // static navigationOptions = {
-    // title: '',
-    // headerLeft: () => (
-    //   <IconButton
-    //     icon={'chevron-left'}
-    //     onPress={()=>{navigation.goBack()}}
-    //     title="return"
-    //     color="#F7F7F7"
-    //   />
-    // ),
-    
+  // title: '',
+  // headerLeft: () => (
+  //   <IconButton
+  //     icon={'chevron-left'}
+  //     onPress={()=>{navigation.goBack()}}
+  //     title="return"
+  //     color="#F7F7F7"
+  //   />
+  // ),
+
   // };
   static navigationOptions = (
-    {navigation}) => {
-    return{
+    { navigation }) => {
+    return {
       title: '',
-      headerStyle: { 
+      headerStyle: {
         backgroundColor: '#C5050C',
         shadowOffset: {
           // 设置阴影偏移量
@@ -39,11 +39,11 @@ class SignupScreen extends React.Component {
         shadowOpacity: 0.13, // 设置阴影的不透明度
         shadowColor: 'rgba(96,96,96,1)', // 设置阴影色
       },
-      headerLeft:(()=><IconButton
+      headerLeft: (() => <IconButton
         icon={'chevron-left'}
-        onPress={()=>{navigation.goBack()}}
+        onPress={() => { navigation.goBack() }}
         color="#F7F7F7"
-        size={35}/>)
+        size={35} />)
     }
   }
 
@@ -106,38 +106,50 @@ class SignupScreen extends React.Component {
           width: Dimensions.get('window').width,
           height: Dimensions.get('window').height - 100,
         }}>
-      <View style={styles.container}>
-        <TextInput
-          label="Email"
-          onChangeText={text => this.handleEmail(text)}
-          style={styles.input}
-          underlineColor='transparent'
-          theme={{colors: {text: '#282728', primary: '#c5050c'}}}
-        />
-        <TextInput
-          label="Password"
-          onChangeText={text => this.handlePassword(text)}
-          style={styles.input}
-          secureTextEntry={true}
-          underlineColor='transparent'
-          theme={{colors: {text: '#282728', primary: '#c5050c'}}}
-        />
-        <TextInput
-          label="Confirm Password"
-          onChangeText={text => this.handleConfirmPassword(text)}
-          style={styles.input}
-          secureTextEntry={true}
-          underlineColor='transparent'
-          theme={{colors: {text: '#282728', primary: '#c5050c'}}}
-        />
+        <View style={styles.container}>
+          <TextInput
+            accessibilityLabel={'reg_email_field'}
+            testID={'reg_email_field'}
+            accessible={true}
+            label="Email"
+            onChangeText={text => this.handleEmail(text)}
+            style={styles.input}
+            underlineColor='transparent'
+            theme={{ colors: { text: '#282728', primary: '#c5050c' } }}
+          />
+          <TextInput
+            accessibilityLabel={'reg_password_field'}
+            testID={'reg_password_field'}
+            accessible={true}
+            label="Password"
+            onChangeText={text => this.handlePassword(text)}
+            style={styles.input}
+            secureTextEntry={true}
+            underlineColor='transparent'
+            theme={{ colors: { text: '#282728', primary: '#c5050c' } }}
+          />
+          <TextInput
+            label="Confirm Password"
+            accessibilityLabel={'reg_confirm_password_field'}
+            testID={'reg_confirm_password_field'}
+            accessible={true}
+            onChangeText={text => this.handleConfirmPassword(text)}
+            style={styles.input}
+            secureTextEntry={true}
+            underlineColor='transparent'
+            theme={{ colors: { text: '#282728', primary: '#c5050c' } }}
+          />
 
-        <Button
-          style={styles.btn}
-          onPress={() => this.addUser()}
-          mode="contained">
-          REGISTER
+          <Button
+            label="Confirm Password"
+            accessibilityLabel={'reg_btn'}
+            testID={'reg_btn'}
+            style={styles.btn}
+            onPress={() => this.addUser()}
+            mode="contained">
+            REGISTER
         </Button>
-      </View>
+        </View>
       </ImageBackground>
     );
   }
