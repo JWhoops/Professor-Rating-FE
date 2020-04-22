@@ -1,8 +1,8 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import RateScreen from './components/screen/RateScreen';
-import LoginScreen from './components/screen/user/LoginScreen';
-import SignUpScreen from './components/screen/user/SignupScreen';
+import LoginScreen from './components/screen/User/LoginScreen';
+import SignUpScreen from './components/screen/User/SignupScreen';
 import CommentScreen from './components/screen/CommentScreen';
 import SavedScreen from './components/screen/SavedScreen';
 import SearchResultScreen from './components/screen/SearchResultScreen';

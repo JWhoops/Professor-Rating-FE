@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { Button, IconButton } from 'react-native-paper';
 import { Rating } from 'react-native-ratings';
+var Filter = require('bad-words');
 
 class RateScreen extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class RateScreen extends React.Component {
   }
 
   postComment() {
+    var filter = new Filter()
     const { token, id } = this.props.navigation.state.params;
     fetch('http://172.220.7.76:8080' + '/v1/comments/', {
       method: 'POST',
@@ -55,7 +57,7 @@ class RateScreen extends React.Component {
       body: JSON.stringify({
         termId: id,
         rating: this.state.rating,
-        content: this.state.comment,
+        content: filter.clean(this.state.comment),
       }),
     })
       .then(response => {

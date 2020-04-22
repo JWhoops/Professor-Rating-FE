@@ -104,7 +104,7 @@ class SignupScreen extends React.Component {
         source={require('../../pic/signup.png')}
         style={{
           width: Dimensions.get('window').width,
-          height: Dimensions.get('window').height,
+          height: Dimensions.get('window').height - 100,
         }}>
       <View style={styles.container}>
         <TextInput
