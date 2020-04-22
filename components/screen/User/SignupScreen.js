@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Dimensions } from 'react-native';
 import { IconButton, Button, TextInput } from 'react-native-paper';
 
 class SignupScreen extends React.Component {
@@ -100,6 +100,12 @@ class SignupScreen extends React.Component {
 
   render() {
     return (
+      <ImageBackground
+        source={require('../../pic/signup.png')}
+        style={{
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height,
+        }}>
       <View style={styles.container}>
         <TextInput
           label="Email"
@@ -132,6 +138,7 @@ class SignupScreen extends React.Component {
           REGISTER
         </Button>
       </View>
+      </ImageBackground>
     );
   }
 }
